@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tasks</title>
+</head>
+<body>
+
+    // Задание 1 
+    <script>
+        // Исходный массив чисел
+        const arr1 = [1, 2, 3];
+
+        // Увеличиваем каждый элемент на 10, затем умножаем на 3
+        const arr2 = arr1.map(item => (item + 10) * 3);
+
+        // Вывод преобразованного массива
+        alert(arr2); // [33, 36, 39]
+    </script>
+
+    // Задание 2 
+    <script>
+        // Массив с годами рождения
+        const birthYears = [1980, 1990, 2000, 2015, 2023];
+
+        // Перебираем годы рождения и вычисляем возраст
+        birthYears.forEach(year => {
+            const age = new Date().getFullYear() - year; // Текущий год - год рождения
+            alert(`Возраст: ${age}`); // Вывод возраста
+        });
+    </script>
+
+    // Задание 3 
+    <script>
+        // Список пользователей с их данными
+        const users = [
+            { name: 'Аарон', age: 10, isAdmin: true },
+            { name: 'Ахмед', age: 78, isAdmin: false },
+            { name: 'Алибаба', age: 7, isAdmin: true },
+            { name: 'Августина', age: 50, isAdmin: false },
+            { name: 'Америк', age: 12, isAdmin: true },
+        ];
+
+        // Фильтруем только администраторов
+        const admins = users.filter(user => user.isAdmin);
+
+        // Вывод списка администраторов
+        alert(JSON.stringify(admins)); // [{"name":"Peter","age":20,"isAdmin":true}, ...]
+    </script>
+
+    // Задание 4 
+    <script>
+        // Список студентов и их оценки
+        const students = [
+            { name: 'Женя', grades: [80, 85, 90] },
+            { name: 'Жора', grades: [75, 80, 70] },
+            { name: 'Жан', grades: [90, 95, 90] },
+        ];
+
+        // Вычисляем сумму всех оценок
+        const sumOfGrades = students.reduce((acc, student) => 
+            acc + student.grades.reduce((a, b) => a + b, 0), 0);
+
+        // Средний балл всех студентов
+        const averageGrade = sumOfGrades / students.length;
+
+        // Вывод среднего балла
+        alert(`Средний балл студентов: ${averageGrade}`);
+
+        // Функция, аналогичная Array.prototype.map
+        function mapForEach(arr, fn) {
+            const newArray = [];
+            for (let i = 0; i < arr.length; i++) {
+                newArray.push(fn(arr[i]));
+            }
+            return newArray;
+        }
+
+        // Массив строк языков программирования
+        const strArray = ['JavaScript', 'Python', 'PHP', 'Java', 'C'];
+
+        // Преобразуем массив: 0, если длина <= 3, иначе 1
+        const lenArray = mapForEach(strArray, item => (item.length <= 3 ? 0 : 1));
+
+        // Вывод преобразованного массива
+        alert(lenArray); // [1, 1, 0, 1, 0]
+    </script>
+
+    // Дополнительное Задание
+    <script>
+        // Создаем симулятор
+        const createSimulator = () => {
+            // Возвращает случайное число от 0 до 2 (красный, черный или белый)
+            return () => Math.floor(Math.random() * 3);
+        };
+
+        // Запускаем симуляцию заданное количество раз
+        const runSimulation = (simulator, count) => {
+            const results = [];
+            for (let i = 0; i < count; i++) {
+                results.push(simulator());
+            }
+            return results;
+        };
+
+        // Находим самую короткую последовательность одинаковых чисел
+        const findShortestSequence = results => {
+            let shortestSequence = results.length;
+            let currentSequence = 1;
+
+            for (let i = 1; i < results.length; i++) {
+                if (results[i] === results[i - 1]) {
+                    currentSequence++;
+                } else {
+                    if (currentSequence < shortestSequence) {
+                        shortestSequence = currentSequence;
+                    }
+                    currentSequence = 1;
+                }
+            }
+
+            return Math.min(shortestSequence, currentSequence);
+        };
+
+        // Используем симулятор
+        const simulator = createSimulator();
+        const results = runSimulation(simulator, 1000000); // Миллион попыток!
+        const shortestSequence = findShortestSequence(results);
+
+    
+        alert(`Самая короткая последовательность: ${shortestSequence}`);
+    </script>
+
+</body>
+</html>

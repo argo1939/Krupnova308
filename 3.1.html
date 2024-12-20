@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Examples</title>
+</head>
+<body>
+    
+    // Задание 1 
+    <script>
+        // Создаем объект user с начальными свойствами
+        let user = {
+            name: "Джон марстон",
+            age: 26
+        };
+
+        // Добавляем метод sayHi для userа
+        user.sayHi = function() {
+            alert("Приветик, ковбой!"); // 
+        };
+
+        
+        user.sayHi();
+    </script>
+
+    // Задание 2 
+    <script>
+        // Создаем объект customer с информацией о пользователе
+        let customer = {
+            name: "Артур",
+            age: 36,
+            phone: "88005553535",
+            email: "qwertyui@gmail.ru",
+            address: "asdfghjk",
+
+            // Метод для вывода информации о пользователе
+            getInfo() {
+                alert(`Имя: ${this.name}`);
+                alert(`Email: ${this.email}`);
+                alert(`Телефон: ${this.phone}`);
+            }
+        };
+
+        // Вызов метода getInfo
+        customer.getInfo();
+    </script>
+
+    // Задание 3 
+    <script>
+        // Создаем объект customer с методами и свойствами
+        let customer = {
+            name: "Эбигейл",
+            age: 17,
+            phone: "555-888",
+            email: "hgfdhui@gmail.ru",
+            address: "Main str, 2",
+
+            // Метод для получения информации на основе пользовательского ввода
+            getInfo() {
+                const inf = prompt("Что вы хотите узнать? (имя, возраст, телефон, email, адрес)");
+
+                switch (inf) {
+                    case "имя":
+                        alert(`Имя: ${this.name}`);
+                        break;
+                    case "возраст":
+                        alert(`Возраст: ${this.age}`);
+                        break;
+                    case "телефон":
+                        alert(`Телефон: ${this.phone}`);
+                        break;
+                    case "email":
+                        alert(`Email: ${this.email}`);
+                        break;
+                    case "адрес":
+                        alert(`Адрес: ${this.address}`);
+                        break;
+                    default:
+                        alert("Неверный запрос елки палки");
+                }
+            }
+        };
+
+        // Вызов метода getInfo
+        customer.getInfo();
+    </script>
+
+    // Дополнительное задание 
+    <script>
+        // Создаем объект Calculator для выполнения арифметических операций
+        const Calculator = {
+            
+            add(a, b) {
+                return a + b;
+            },
+
+           
+            subtract(a, b) {
+                return a - b;
+            },
+
+            
+            multiply(a, b) {
+                return a * b;
+            },
+
+           
+            divide(a, b) {
+                if (b === 0) {
+                    return "Деление на ноль невозможно еклмн"; // Проверка на деление на ноль
+                }
+                return a / b;
+            }
+        };
+
+        // Пример использования методов объекта Calculator:
+        console.log("Сложение: ", Calculator.add(10, 5));
+        console.log("Вычитание: ", Calculator.subtract(10, 5));
+        console.log("Умножение: ", Calculator.multiply(10, 5));
+        console.log("Деление: ", Calculator.divide(10, 5));
+        console.log("Деление на 0: ", Calculator.divide(10, 0));
+    </script>
+</body>
+</html>

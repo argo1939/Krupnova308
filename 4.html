@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+// Задание 1 
+<script>
+    
+    function showMessage() {
+        let message = "Привет, я JavaScript!"; // Локальная переменная внутри функции
+        alert(message); // Вывод сообщения
+    }
+
+    showMessage(); 
+    // Следующая строка вызовет ошибку, так как переменная message не существует вне функции
+</script>
+
+// Задание 2 
+<script>
+
+    // Функция для проверки, является ли слово палиндромом
+
+    function checkPalindrome(name) {
+        for (let i = 0; i < name.length / 2; i++) {
+
+            // Сравниваем символы с начала и конца строки
+            if (name[i] !== name[name.length - i - 1]) {
+
+                alert("Не, не палиндром, не круто"); 
+                return false;
+            }
+        }
+        alert("Это палиндром"); // Если все символы совпали
+        return true;
+    }
+    checkPalindrome(prompt("Введите слово для проверки на палиндром:")); // Ввод слова
+</script>
+
+// Задание 3 
+<script>
+    // Функция замены отрицательных чисел их квадратами
+    function replace(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < 0) {
+                arr[i] = arr[i] * arr[i]; // Замена отрицательных чисел на их квадраты
+            }
+        }
+        console.log("Массив после обработки:", arr); // Вывод обработанного массива
+    }
+
+    // Создание массива случайных чисел от -100 до 100
+    let arr = [];
+    for (let i = 0; i < 10; i++) {
+        arr.push(Math.floor(Math.random() * 201) - 100); // Генерация чисел в диапазоне [-100, 100]
+    }
+    console.log("Исходный массив:", arr); // Вывод исходного массива
+    replace(arr); // замена
+</script>
+
+// Задание 4 
+<script>
+    // Класс для пользователя с методом вывода имени
+    class User {
+        constructor(name) {
+            this.name = name; // Инициализация имени пользователя
+        }
+        sayName() {
+            alert(this.name); // Вывод имени
+        }
+    }
+    let user = new User("john"); 
+    user.sayName(); 
+</script>
+
+// Задание 5 
+<script>
+    // Класс для пользователя с методом приветствия
+    class User {
+        constructor(name) {
+            this.name = name; //
+        }
+        showMessage() {
+            alert("Привет, " + this.name); // Вывод 
+        }
+    }
+
+    let user = new User("Джон"); // Создание объекта 
+    user.showMessage(); // Вызов приветствия
+</script>
+
+// Задание 6 
+<script>
+    // Класс для пользователя с методами вывода имени и его разворота
+    class User {
+        constructor(name) {
+            this.name = name; // Инициализация имени 
+        }
+        showName() {
+            alert(this.name); // Вывод
+        }
+        swapName() {
+            let reversedName = this.name.split('').reverse().join(''); // Разворот строки
+            alert(reversedName); // Вывод развернутого имени
+        }
+    }
+
+    let user = new User("Джон"); // 
+    user.showName(); // Вывод имени
+    user.swapName();
+</script>
+
+// Доп. Задание 
+<script>
+    // Класс-симулятор для выбора случайного цвета
+    class Simulator {
+        constructor() {
+            this.colors = ["красный", "черный", "белый"]; // Возможные цвета
+        }
+
+        roll() {
+            return this.colors[Math.floor(Math.random() * this.colors.length)]; // Случайный выбор цвета
+        }
+    }
+
+    function simulate() {
+        const colors = ["красный", "черный", "белый"];
+        return colors[Math.floor(Math.random() * colors.length)]; // Случайный выбор цвета
+    }
+
+    // Использование класса
+    const simulator = new Simulator();
+    let longestSequence = 0; // Максимальная длина последовательности
+    let currentSequence = 0; // Текущая длина последовательности
+    let previousColor = null; // Предыдущий цвет
+
+    for (let i = 0; i < 1000000; i++) {
+        const color = simulator.roll();
+        if (color === previousColor) {
+            currentSequence++;
+        } else {
+            currentSequence = 1;
+        }
+        previousColor = color;
+        if (currentSequence > longestSequence) {
+            longestSequence = currentSequence;
+        }
+    }
+
+    alert(`Самая длинная последовательность (класс): ${longestSequence}`);
+</script>
+
+</body>
+</html>

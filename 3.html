@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+// Задание 1
+// Создаем массив из 15 случайных чисел в диапазоне от -10 до 30
+let numbers = [];
+for (let i = 0; i < 15; i++) {
+  numbers.push(Math.floor(Math.random() * 41) - 10);
+}
+
+// Выводим исходный массив пользователю
+alert("Исходный массив:\n" + numbers.join(", "));
+
+// Заменяем отрицательные элементы массива их квадратами
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] < 0) {
+    numbers[i] = numbers[i] * numbers[i];
+  }
+}
+
+// Выводим обновленный массив пользователю
+alert("Массив после замены отрицательных элементов их квадратами:\n" + numbers.join(", "));
+
+// Инициализируем переменные для подсчета характеристик массива
+let sumPositive = 0;
+let countPositive = 0;
+let sumNegative = 0;
+let countNegative = 0;
+let countZeros = 0;
+
+// Подсчитываем среднее арифметическое положительных и отрицательных чисел, а также количество нулей
+for (let num of numbers) {
+  if (num > 0) {
+    sumPositive += num;
+    countPositive++;
+  } else if (num < 0) {
+    sumNegative += num;
+    countNegative++;
+  } else {
+    countZeros++;
+  }
+}
+
+// Выводим результаты подсчетов пользователю
+if (countPositive === 0) {
+  alert("Среднее арифметическое положительных чисел: NaN");
+} else {
+  alert("Среднее арифметическое положительных чисел: " + (sumPositive / countPositive));
+}
+
+if (countNegative === 0) {
+  alert("Среднее арифметическое отрицательных чисел: NaN");
+} else {
+  alert("Среднее арифметическое отрицательных чисел: " + (sumNegative / countNegative));
+}
+
+alert("Число нулей: " + countZeros);
+
+// Симулятор для определения цвета с максимальным количеством выпадений
+let colors = ["Красный", "Черный", "Белый"];
+let colorsCount = [0, 0, 0];
+
+// Генерируем миллион случайных выпадений цветов
+for (let i = 0; i < 1000000; i++) {
+  let colorIndex = Math.floor(Math.random() * 3);
+  colorsCount[colorIndex]++;
+}
+
+// Определяем цвет с максимальным количеством выпадений
+let maxCount = colorsCount[0];
+let maxColor = "Красный";
+
+for (let i = 0; i < colorsCount.length; i++) {
+  if (colorsCount[i] > maxCount) {
+    maxCount = colorsCount[i];
+    maxColor = colors[i];
+  }
+}
+
+// Выводим результат симуляции пользователю
+alert("Максимальное число раз выпадало значение: " + maxColor + " (" + maxCount + " раз)");
+</script>
+
+</body>
+</html>
+
+// 1. Элементы массива могут принимать любые значения допустимого типа данных для массива. 
+ Общие типы данных включают целые числа, вещественные числа, символы, строки и указатели. 

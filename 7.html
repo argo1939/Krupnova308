@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tasks</title>
+</head>
+<body>
+
+    // Задание 1 
+    <script>
+        // Функция для вывода свойств объекта 
+        const displayObjectProperties = (object) => {
+            let message = "";
+            
+            // Перебираем все свойства объекта
+            for (const property in object) {
+                
+                const value = typeof object[property] === "string" ? `"${object[property]}"` : object[property];
+                // Cтроку с названием свойства и его значением
+                message += `${property}: ${value}\n`;
+            }
+            
+            // Выводим результат пользователю
+            alert(message);
+        };
+
+        // Массив объектов с различными данными
+        const objects = [
+            {
+                name: "Клиент банка",
+                properties: {
+                    name: "Джон",
+                    surname: "Джонов",
+                    age: 26,
+                    accountNumber: "1234567890",
+                    balance: 654321
+                }
+            },
+            {
+                name: "Работник правительства",
+                properties: {
+                    name: "Владимир",
+                    surname: "Нитупович",
+                    age: 60+,
+                    position: "вождь",
+                    salary: 1000000000000000
+                }
+            },
+            {
+                name: "Гражданин страны",
+                properties: {
+                    name: "Дарья",
+                    surname: "Олеговна",
+                    age: 18,
+                    passportNumber: "1234567890",
+                    registrationAddress: "г. Москва, ул. Московская, д. 04, кв. 04"
+                }
+            }
+        ];
+
+        //  выводим
+        for (const object of objects) {
+            displayObjectProperties(object.properties);
+        }
+    </script>
+
+    // Задание 2 
+    <script>
+        // Запрос числа у пользователя
+        const number = +prompt('Загадайте цифру до 9', '');
+        
+        // Проверка 
+        switch (number) {
+            case 1:
+                alert('Вы ввели число 1');
+                break;
+            case 2:
+                alert('Вы ввели число 2');
+                break;
+            case 8:
+            case 9:
+                alert('Вы ввели число 8, а может и 9');
+                break;
+            default:
+                alert('Вы ввели неверную цифру');
+        }
+    </script>
+
+    // Задание 3 
+    <script>
+        // Определяем минуту и проверяем, в какой четверти часа она находится
+        const min = 25; // Пример 
+        const quarter = Math.floor(min / 15); //четверть
+
+        switch (quarter) {
+            case 0:
+                alert("Первая четверть часа");
+                break;
+            case 1:
+                alert("Вторая четверть часа");
+                break;
+            case 2:
+                alert("Третья четверть часа");
+                break;
+            case 3:
+                alert("Четвертая четверть часа");
+                break;
+            default:
+                alert("Неправильное значение");
+        }
+    </script>
+
+    // Задание 4 
+    <script>
+        // Строка для анализа
+        const str = "12345";
+
+        // Проверяем первую цифру строки
+        switch (str[0]) {
+            case "1":
+            case "2":
+            case "3":
+                alert("Первая цифра 1, 2 или 3");
+                break;
+            default:
+                alert("нет");
+        }
+
+        // Проверяем наличие телефона в строке
+        const myPhoneNumber = "123-456-7890";
+
+        if (str.includes(myPhoneNumber)) {
+            alert("Ваш номер телефона включен в строку");
+        } else {
+            alert("Ваш номер телефона не включен в строку");
+        }
+    </script>
+
+    
+    <p>
+        <!-- Отличие строкового типа от символьного -->
+        <strong>Строковый тип:</strong> последовательность нуля или более символов Unicode.<br>
+        <strong>Символьный тип:</strong> представляет один символ Unicode.
+    </p>
+    <p>
+        <!-- Пример цикла для вывода символа -->
+        Чтобы вывести символ 'a' несколько раз:<br>
+        <code>
+            const char = 'a';<br>
+            const times = 5;<br>
+            for (let i = 0; i < times; i++) {<br>
+                alert(char);<br>
+            }
+        </code>
+    </p>
+
+</body>
+</html>

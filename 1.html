@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+// 1 
+  <script>
+    let oops = "hello";
+alert(typeof(oops)); 
+</script>
+
+// 2 
+  <script>
+let number1 = prompt("пожалуйста введите первое число:");
+let number2 = prompt("пожалуйста введите число:");
+
+let operation = prompt("пожалуйста введите арифметическую операцию (+, -, *, /):");
+
+// Преобразовать строки в числа
+number1 = Number(number1);
+number2 = Number(number2);
+
+let result;
+
+switch (operation) {
+  case "+":
+    result = number1 + number2;
+    break;
+  case "-":
+    result = number1 - number2;
+    break;
+  case "*":
+    result = number1 * number2;
+    break;
+  case "/":
+    result = number1 / number2;
+    break;
+  default:
+    alert("ошибко ошибко ошибко");
+}
+
+// Вывести результат в диалоговом окне
+alert("Результат вот: " + result);
+
+// 3 
+
+// Запросить у пользователя число, которое он загадал.
+let guessedNumber = prompt("Загадайте (в уме!) число и умножьте его на 2, затем прибавьте к результату 7:");
+
+// Вычислить число, которое загадал пользователь.
+let guess = (Number(guessedNumber) - 7) / 2;
+
+// Вывести загаданное число в диалоговом окне.
+alert("Вы загадали число: " + guess);
+
+// 4 
+
+// Вывести имя пользователя и его возраст на страницу.
+let userName = prompt("пожалуйста введите ваше имя:");
+let birthYear = prompt("пожалуйста введите год вашего рождения:");
+let age = new Date().getFullYear() - birthYear;
+
+// Вывести имя пользователя и его возраст на страницу в абзаце.
+document.write(`<p>${userName}: ${age}</p>`);
+</script>
+
+</body>
+</html>
+
+// вопросы! 
+
+/ 1. Разница между var и let
+    let - не поднимается и имеет значение `undefined` только внутри блока, в котором объявлен
+    let - имеет блочную область видимости (видны только внутри блока, в котором объявлены)
+    let - не позволяет переобъявлять переменные
+
+    var - позволяет переобъявлять переменные (создавать новую переменную с тем же именем)
+    var - имеет функциональную область видимости (видны внутри всей функции)
+    var - поднимается (инициализируется значением `undefined`) в начало функции или области видимости
+
+2. Типы данных в Java Script
+ Простые типы:
+     Строка (string)
+     Число (number)
+     Булево значение (boolean)
+     Null
+     Undefined
+ Сложные типы:
+     Объект (object)
+     Массив (array)
+     Функция (function)
+ Специальные типы:
+     Символ 
+     BigInt
+
+3. Переменная, полученная с помощью команды `prompt`, сохраняется как string. /
